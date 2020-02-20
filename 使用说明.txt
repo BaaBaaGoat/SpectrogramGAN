@@ -1,0 +1,16 @@
+1. 下载训练集
+下载地址：http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+下载完以后解压
+2. 改程序中训练集读取路径
+打开lib\Prepareads.mlx 第五行路径改成上面解压的路径
+3. 生成频谱图
+运行ProduceSpectrogram.mlx
+4. 训练GAN
+打开simpleGAN.mlx 第五行seven改成你要训练的单词（前提是训练集里面有）
+运行simpleGAN.mlx
+不用训练完，训练到300epoch以上效果就比较好了
+训练到预定步数以后，暂停运行，把dlXGeneratedValidation变量保存为文件matlab.mat，这个是神经网络的输出。
+如果需要神经网络模型，保存dlnetDiscriminator dlnetGenerator这两个变量。
+5. GAN输出的频谱图转声音
+运行SpectrogramToWave.mlx
+输出1.avi为生成出来的声谱图（无声音）1.wav为声音 可以用格式工厂合并成一个视频
